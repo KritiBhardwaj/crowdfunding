@@ -58,7 +58,7 @@ function EditProjectForm() {
           <input
             type="text"
             id="title"
-            placeholder="Enter Project Title"
+            value={projectDetails.title}
             onChange={handleChange}
           />
         </div>
@@ -67,7 +67,7 @@ function EditProjectForm() {
           <input
             type="text"
             id="description"
-            placeholder="Enter Project Description"
+            value={projectDetails.description}
             onChange={handleChange}
           />
         </div>
@@ -76,7 +76,7 @@ function EditProjectForm() {
           <input
             type="text"
             id="goal"
-            placeholder="Enter Project Goal"
+            value={projectDetails.goal}
             onChange={handleChange}
           ></input>
         </div>
@@ -85,7 +85,7 @@ function EditProjectForm() {
           <input
             type="text"
             id="image"
-            placeholder="Enter Project Image"
+            value={projectDetails.image}
             onChange={handleChange}
           ></input>
         </div>
@@ -94,7 +94,7 @@ function EditProjectForm() {
           <input
             type="text"
             id="is_open"
-            placeholder="True/False"
+            value={projectDetails.is_open}
             onChange={handleChange}
           ></input>
         </div>
