@@ -4,3 +4,23 @@
   column-gap: 10px;
   row-gap: 10px;
 }
+
+#web-title {
+  text-align: center;
+  vertical-align: middle;
+  background-color: #eff0d1;
+  height: 1in;
+}
+
+#nav {
+  background-color: #77ba99;
+  color: #d33f49 !important;
+  text-align: center;
+  height: 0.5in;
+}
+
+#create-project {
+  background-color: #eff0d1;
+  text-align: center;
+  height: 100%;
+}
