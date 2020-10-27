@@ -31,7 +31,9 @@ function ProjectPage() {
           );
         })}
       </ul>
-      <li><Link to={`/editProjects/:id`}</li>
+      <li>
+        <Link to={`/editProjects/${projectData.id}`}>Edit Project</Link>
+      </li>
     </div>
   );
 }
