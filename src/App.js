@@ -7,6 +7,7 @@ import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
 import CreateProjectPage from "./pages/CreateProjectPage";
 import EditProjecPage from "./pages/EditProjectPage";
+import NotFoundPage from "./components/errorHanding/NotFoundPage";
 
 function App() {
   return (
@@ -36,9 +37,11 @@ function App() {
           <Route path="/createProject">
             <CreateProjectPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <HomePage />
           </Route>
+          <Route path="noauth" component={NotFoundPage} />
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </div>
     </Router>

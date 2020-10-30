@@ -44,10 +44,21 @@ function EditProjectForm() {
   //get token
   const handleSubmit = (e) => {
     e.preventDefault();
-    editData().then((response) => {
-      console.log(response);
-      history.push(`/projects/${response.id}`);
-    });
+    editData()
+      .then((response) => {
+        console.log(response);
+        if (response.detail) {
+          history.push(`/noauth`);
+          return;
+        }
+        history.push(`/projects/${response.id}`);
+      })
+      .catch((error) => {
+        console.log(error, "hello");
+        if (error.status === 403) {
+          history.push(`hirogh`);
+        }
+      });
   };
 
   return (
