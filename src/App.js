@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import CreateProjectPage from "./pages/CreateProjectPage";
 import EditProjecPage from "./pages/EditProjectPage";
 import NotFoundPage from "./components/errorHanding/NotFoundPage";
+import SubmitPledgePage from "./pages/SubmitPledgePage";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
 
       <div id="home-page">
         <Switch>
+          <Route path="/submitPledge">
+            <SubmitPledgePage />
+          </Route>
           <Route path="/deleteProjects/:id">
             <EditProjecPage />
           </Route>
