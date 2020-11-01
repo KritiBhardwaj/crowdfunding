@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SubmitPledgePage from "./SubmitPledgePage";
+import PledgeCard from "../components/PledgeCard/PledgeCard";
 
 function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledges: [] });
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
@@ -15,6 +18,39 @@ function ProjectPage() {
         setProjectData(data);
       });
   }, []);
+
+  const deleteData = async () => {
+    var token = window.localStorage.getItem("token");
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/projects/${id}`,
+      {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token${token}`,
+        },
+        body: JSON.stringify(projectData),
+      }
+    );
+    return response.text();
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+
+    if (
+      window.confirm(
+        "Project ${projectData.title} will be permanently deleted. Proceed accordingly!"
+      )
+    ) {
+      deleteData().then((response) => {
+        console.log(response);
+        history.push(`/`);
+      });
+    } else {
+      history.push(`/`);
+    }
+  };
 
   return (
     <div>
@@ -27,7 +63,7 @@ function ProjectPage() {
         {projectData.pledges.map((pledgesData, key) => {
           return (
             <li>
-              {pledgesData.amount} from {pledgesData.supporter}
+              {pledgesData.image} from {pledgesData.supporter}
             </li>
           );
         })}
@@ -38,13 +74,13 @@ function ProjectPage() {
       <li>
         <Link to={`/submitPledge`}>Submit Pledge</Link>
       </li>
-      {/* <li>
+      <li>
         <a>
           <button type="submit" onClick={handleDelete}>
             Delete Project
           </button>
         </a>
-      </li> */}
+      </li>
     </div>
   );
 }

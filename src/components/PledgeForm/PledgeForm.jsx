@@ -1,27 +1,39 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function PledgeForm() {
-  const [pledgeDetails, setPledgeDetails] = useState({
+  const user_id = window.localStorage.getItem("user_id");
+  const token = window.localStorage.getItem("token");
+  const { id } = useParams();
+
+  const [pledgeDetails, setPledgeList] = useState({
     image: "",
     comment: "",
-    anonymous: "",
+    anonymous: false,
+    supporter: user_id,
+    project_id: id,
   });
 
-  // How to get a foreign key so pledge is linked to project and supporter?
+  const history = useHistory();
+
+  const handleToggle = (e) => {
+    const { id, checked } = e.target;
+    setPledgeList((newPledge) => ({
+      ...pledgeDetails,
+      [id]: checked,
+    }));
+  };
+
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setPledgeDetails((prevPledgeDetails) => ({
-      ...prevPledgeDetails,
+    setPledgeList((newPledge) => ({
+      ...pledgeDetails,
       [id]: value,
     }));
   };
 
   const postData = async () => {
-    const token = window.localStorage.getItem("token");
-    if (!token) {
-      window.alert("Not Logged In");
-      return;
-    }
     const response = await fetch(`${process.env.REACT_APP_API_URL}/pledges/`, {
       method: "post",
       headers: {
@@ -30,6 +42,7 @@ function PledgeForm() {
       },
       body: JSON.stringify(pledgeDetails),
     });
+    return response.json();
   };
 
   const handleSubmit = (e) => {
@@ -61,12 +74,12 @@ function PledgeForm() {
           />
         </div>
         <div>
-          <label htmlFor="anomymous">Anonymous: </label>
+          <label htmlFor="anomymous">Anonymous Contribution: </label>
           <input
-            type="text"
+            type="checkbox"
             id="anonymous"
-            placeholder="true/false"
-            onChange={handleChange}
+            value="true"
+            onChange={handleToggle}
           />
         </div>
         <div>
