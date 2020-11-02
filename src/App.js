@@ -19,9 +19,6 @@ function App() {
 
       <div id="nav">
         <Nav />
-      </div>
-
-      <div>
         <h1>
           This webpage is for people who are interested in getting an insight
           into intricacies of wedding ceremonies from different countries of the
