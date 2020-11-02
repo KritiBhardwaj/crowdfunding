@@ -19,6 +19,9 @@ function App() {
 
       <div id="nav">
         <Nav />
+      </div>
+
+      <div id="home-page">
         <h1>
           This webpage is for people who are interested in getting an insight
           into intricacies of wedding ceremonies from different countries of the
@@ -28,9 +31,7 @@ function App() {
           missed out on attending weddings of loved ones as well as probably had
           a damper on their own plans.
         </h1>
-      </div>
 
-      <div id="home-page">
         <Switch>
           <Route path="/submitPledge">
             <SubmitPledgePage />
