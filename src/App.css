@@ -6,21 +6,42 @@
 }
 
 #web-title {
+  color: #262730;
   text-align: center;
   vertical-align: middle;
   background-color: #eff0d1;
-  height: 1in;
+  height: 0.5in;
 }
 
 #nav {
   background-color: #77ba99;
   color: #d33f49 !important;
   text-align: center;
-  height: 0.5in;
+  height: 0.25in;
 }
 
 #create-project {
   background-color: #eff0d1;
   text-align: center;
   height: 100%;
+}
+
+#about {
+  margin: 0mm;
+  padding: 0pc;
+  text-align: center;
+  font-size: x-small;
+  color: #262730;
+  font-style: italic;
+  background-color: #eff0d1;
+}
+
+/* 
+#D7C0D0 
+#D33F49
+#262730
+*/
+
+#home-page {
+  background-color: #eff0d1;
 }

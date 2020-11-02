@@ -21,17 +21,21 @@ function App() {
         <Nav />
       </div>
 
-      <div id="home-page">
+      <div id="about">
         <h1>
           This webpage is for people who are interested in getting an insight
           into intricacies of wedding ceremonies from different countries of the
           world. The current world circumstances go to show how quickly we can
           be distanced from the world and by establishing a cultural exchange
-          platform that it could help uplift spirits of many people would have
-          missed out on attending weddings of loved ones as well as probably had
-          a damper on their own plans.
+          platform we aim to uplift spirits of many people would have missed out
+          on attending weddings of loved ones, travel plans around the world and
+          more. You can create a project for a country that is yet to be
+          represented. Alternatively, you can contibute to an existing project!!
+          Share love !!
         </h1>
+      </div>
 
+      <div id="home-page">
         <Switch>
           <Route path="/submitPledge">
             <SubmitPledgePage />
