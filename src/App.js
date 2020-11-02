@@ -14,11 +14,23 @@ function App() {
   return (
     <Router>
       <div id="web-title">
-        <h1>%% Culturegram %%</h1>
+        <h1> Culturegram </h1>
       </div>
 
       <div id="nav">
         <Nav />
+      </div>
+
+      <div>
+        <h1>
+          This webpage is for people who are interested in getting an insight
+          into intricacies of wedding ceremonies from different countries of the
+          world. The current world circumstances go to show how quickly we can
+          be distanced from the world and by establishing a cultural exchange
+          platform that it could help uplift spirits of many people would have
+          missed out on attending weddings of loved ones as well as probably had
+          a damper on their own plans.
+        </h1>
       </div>
 
       <div id="home-page">
