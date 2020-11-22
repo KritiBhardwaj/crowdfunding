@@ -37,10 +37,10 @@ function App() {
 
       <div id="home-page">
         <Switch>
-          <Route path="/submitPledge">
+          <Route path="/projects/:id/submitPledge">
             <SubmitPledgePage />
           </Route>
-          <Route path="/deleteProjects/:id">
+          <Route path="/deleteProject/:id">
             <EditProjecPage />
           </Route>
           <Route path="/editProjects/:id">

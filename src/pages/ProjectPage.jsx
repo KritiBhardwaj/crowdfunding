@@ -68,19 +68,17 @@ function ProjectPage() {
           );
         })}
       </ul>
-      <li>
+      <button>
         <Link to={`/editProjects/${projectData.id}`}>Edit Project</Link>
-      </li>
-      <li>
-        <Link to={`/submitPledge`}>Submit Pledge</Link>
-      </li>
-      <li>
-        <a>
-          <button type="submit" onClick={handleDelete}>
-            Delete Project
-          </button>
-        </a>
-      </li>
+      </button>
+      <button>
+        <Link to={`/projects/${projectData.id}/submitPledge`}>
+          Submit Pledge
+        </Link>
+      </button>
+      <button>
+        <Link to={`/deleteProject/${projectData.id}`}>Delete Projecct</Link>
+      </button>
     </div>
   );
 }

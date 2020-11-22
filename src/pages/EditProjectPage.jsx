@@ -1,5 +1,5 @@
 import React from "react";
-import EditProjectForm from "../components/ProjectForm/EditProjectForm";
+import EditProjectForm from "../components/EditProjectForm/EditProjectForm";
 
 function EditProjectPage() {
   return <EditProjectForm />;
